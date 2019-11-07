@@ -1,0 +1,4 @@
+Django==2.2.7
+pytz==2019.3
+pyUFbr==0.1.0
+sqlparse==0.3.0
