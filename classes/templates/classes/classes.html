@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Turmas{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 offset-md-0 col-8 offset-2 mt-4">
+            <h1 class="headline mr-3"><i class="fas fa-medal mr-2 ml-2"></i>Turmas</h1>
+            <a href="{% url 'adding' %}" class="btn btn-success" role="button"><i class="fas fa-plus-circle mr-1"></i>Adicionar</a>
+            <a href="#" class="btn btn-danger" role="button"><i class="fas fa-trash-alt mr-1"></i>Excluir</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row p-3">
+        <div class="col-md-12 bg-white p-4 mg-5">
+            <table class="table table-sm table-responsive-md" id="tableSelector">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col"><input type="checkbox"></th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Início</th>
+                        <th scope="col">Cidade/UF</th>
+                        <th scope="col">Solicitação</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for class in classes %}
+                    <tr class="rows" data-href="{% url 'editing' class.id %}">
+                        <th scope="col"><input type="checkbox"></th>
+                        <td>{{ class.course }}</td>
+                        <td>{{ class.start_date }}</td>
+                        <td>{{ class.city }}/{{ class.state }}</td>
+                        <td>{{ class.date_request }}</td>
+                        <td><a href="#" class="btn btn-danger btn-sm" role="button"><i class="fas fa-trash-alt mr-1"></i>Excluir</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+{% endblock %}
