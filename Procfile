@@ -1,1 +1,1 @@
-web: gunicorn weef-teste.wsgi
+web: gunicorn weef_teste.wsgi
